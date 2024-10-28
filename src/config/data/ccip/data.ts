@@ -492,6 +492,7 @@ export const getAllNetworkLanes = async ({
   version: Version
   site: string
 }) => {
+  console.log("aem getAllNetworkLanes", site)
   const { lanesReferenceData } = loadReferenceData({
     environment,
     version,
@@ -647,6 +648,7 @@ export async function getOperationalState(chain: string, site: string) {
   const url = `${site}/api/ccip/lane-statuses?sourceNetworkId=${chain}`
   const response = await fetch(url)
   if (response.status !== 200) {
+    console.log("aem getOperationalState error", url, response.status)
     return {}
   }
   return response.json()

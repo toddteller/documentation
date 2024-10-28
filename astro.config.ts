@@ -45,7 +45,9 @@ export default defineConfig({
     smartypants: false,
   },
   output: "hybrid",
-  adapter: vercel(),
+  adapter: vercel({
+    edgeMiddleware: true,
+  }),
   vite: {
     plugins: [yaml()],
   },
